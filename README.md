@@ -1,7 +1,7 @@
 # array-each-nonflat
-[![Build Status](https://travis-ci.org/elidoran/array-each-nonflat.svg?branch=master)](https://travis-ci.org/elidoran/array-each-nonflat)
+[![Build Status](https://travis-ci.org/elidoran/array-each-nonflat.svg?branch=future)](https://travis-ci.org/elidoran/array-each-nonflat)
 [![npm version](https://badge.fury.io/js/array-each-nonflat.svg)](http://badge.fury.io/js/array-each-nonflat)
-[![Coverage Status](https://coveralls.io/repos/github/elidoran/array-each-nonflat/badge.svg?branch=master)](https://coveralls.io/github/elidoran/array-each-nonflat?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/elidoran/array-each-nonflat/badge.svg?branch=future)](https://coveralls.io/github/elidoran/array-each-nonflat?branch=future)
 
 Array 'each' on non-flat arrays via a non-recursive single-loop.
 
