@@ -1,0 +1,52 @@
+{
+  "name": "array-each-nonflat",
+  "version": "1.0.0",
+  "description": "Array 'each' on non-flat arrays via a non-recursive single-loop.",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "tap test.js",
+    "test10": "nave use 10 tap --no-coverage test.js",
+    "test12": "nave use 12 tap --no-coverage test.js",
+    "test14": "nave use 14 tap --no-coverage test.js",
+    "test16": "nave use 16 tap --coverage-report=lcovonly test.js",
+    "tests": "npm run test10 && npm run test12 && npm run test14 && npm run test16",
+    "benchmark": "node benchmark/index.js",
+    "coverage": "npm run tests && cat coverage/lcov.info | coveralls",
+    "coverage-clean": "rm -rf ./coverage ./.nyc_output"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elidoran/array-each-nonflat.git"
+  },
+  "keywords": [
+    "array",
+    "each",
+    "forEach",
+    "iterate",
+    "iteration",
+    "visit",
+    "visitor",
+    "flat",
+    "nonflat",
+    "non-flat"
+  ],
+  "author": {
+    "name": "Eli Doran",
+    "email": "eli+npm@elidoran.com",
+    "url": "https://github.com/elidoran"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elidoran/array-each-nonflat/issues"
+  },
+  "homepage": "https://github.com/elidoran/array-each-nonflat#readme",
+  "devDependencies": {
+    "coveralls": "^3.1.0",
+    "nave": "^3.2.2",
+    "tap": "^15.0.9"
+  },
+  "dependencies": {}
+}
