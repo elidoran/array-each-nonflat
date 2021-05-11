@@ -8,7 +8,7 @@ tap.test('empty inner arrays', t => {
   const array = [ 0, 1, 2, [[], [[[]]]], 4, 5, 6, 7 ]
 
   const visitor = (_, __, ___, i, ____) => {
-    t.notEqual(i, 3, 'should skip over index 3')
+    t.not(i, 3, 'should skip over index 3')
   }
 
   each(array, visitor)
