@@ -91,3 +91,18 @@ tap.test('depth=3', t => {
 
   t.end()
 })
+
+tap.test('early exit', t => {
+  const array = [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  let count = 0
+  const visitor = (e, I, a, i, s) => {
+    count++
+    return (3 !== e)
+  }
+
+  each(array, visitor)
+
+  t.equal(count, 4)
+
+  t.end()
+})

@@ -27,7 +27,9 @@ module.exports = (mainArray, visitor) => {
     }
 
     // 3. call the visitor with the usual trio of values plus our stack.
-    visitor(e, I, a, i, stack)
+    if (false === visitor(e, I, a, i, stack)) {
+      return // if the visitor returns `false` then we stop.
+    }
 
     // 4. the usual increment, plus increment the overall index.
     i += 1
