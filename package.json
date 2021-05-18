@@ -1,6 +1,6 @@
 {
   "name": "array-each-nonflat",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Array each to iterate on both flat and non-flat arrays via a non-recursive single-loop.",
   "main": "index.js",
   "files": [
