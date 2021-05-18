@@ -1,3 +1,12 @@
+1.1.1 / 2021/05/18
+==================
+
+1. tweaked the README a bit and mentioned early exit by returning false.
+2. added test for a bug when the last element is an empty array.
+3. fixed the bug mentioned above.
+4. change linting rule for braces to space-out if-elseif-else section.
+
+
 1.1.0 / 2021/05/14
 ==================
 
