@@ -4,11 +4,27 @@ const tap = require('tap')
 
 const each = require('./index.js')
 
-tap.test('empty inner arrays', t => {
-  const array = [ 0, 1, 2, [[], [[[]]]], 4, 5, 6, 7 ]
+tap.test('last element empty array', t => {
+  const array = [ 1, 2, 3, [] ]
 
-  const visitor = (_, __, ___, i, ____) => {
-    t.not(i, 3, 'should skip over index 3')
+  const visitor = (_, __, a, i, ___) => {
+    t.not(i, 4, 'should skip over index 4')
+  }
+
+  each(array, visitor)
+
+  t.end()
+})
+
+tap.test('empty inner arrays', t => {
+  const array = [ [], 0, 1, 2, [[], [[[]]]], 4, 5, 6, 7, [] ]
+
+  const visitor = (_, __, a, i, ___) => {
+    if (a === array) {
+      t.not(i, 0, 'should skip over index 0')
+      t.not(i, 4, 'should skip over index 4')
+      t.not(i, 9, 'should skip over index 9')
+    }
   }
 
   each(array, visitor)

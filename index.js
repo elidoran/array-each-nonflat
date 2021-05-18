@@ -17,25 +17,40 @@ module.exports = (mainArray, visitor) => {
     while (Array.isArray(e)) {
       if (e.length > 0) { // non-empty array means stack.
         stack.push([a, i + 1]) // remember where to continue in the current array.
-        a = e    // start on this new array.
-        i = 0    // restart at the beginning of this new array.
-      } else {   // empty array gets skipped over.
-        i += 1   // move passed this empty array.
+        a = e  // start on this new array.
+        i = 0  // restart at the beginning of this new array.
+      }
+
+      else {   // empty array gets skipped over.
+        i += 1 // move passed this empty array.
       }
 
       e = a[i] // get new element for our loop to check for stacking.
     }
 
-    // 3. call the visitor with the usual trio of values plus our stack.
-    if (false === visitor(e, I, a, i, stack)) {
-      return // if the visitor returns `false` then we stop.
+    // 3a. if empty arrays didn't move us to the array's end.
+    if (i < a.length) { // if we have an `e`...
+      // call the visitor with the usual trio of values plus our stack.
+      if (false === visitor(e, I, a, i, stack)) {
+        return // if the visitor returns `false` then we stop.
+      }
+
+      // the usual increment, plus increment the overall index.
+      i += 1
+      I += 1
     }
 
-    // 4. the usual increment, plus increment the overall index.
-    i += 1
-    I += 1
+    // 3b. we finished the `a`, so, do we have a more work to pop?
+    else if (stack.length > 0) {
+      [a, i] = stack.pop() // Note, this'll be checked by the below while-loop.
+    }
 
-    // 5. check if it's time to unstack.
+    // 3c. done with array and nothing stacked, so, we're done.
+    else {
+      break
+    }
+
+    // 4. check if more unstacking is needed.
     // loop on it in case we've completed multiple stacked arrays.
     // Note, the '>=' is just precautionary, we could do 'i === a.length'.
     while (i >= a.length && stack.length > 0) {
