@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/array-each-nonflat.svg)](http://badge.fury.io/js/array-each-nonflat)
 [![Coverage Status](https://coveralls.io/repos/github/elidoran/array-each-nonflat/badge.svg?branch=future)](https://coveralls.io/github/elidoran/array-each-nonflat?branch=future)
 
-Array 'each' on non-flat arrays via a non-recursive single-loop.
+Array each to iterate on both flat and non-flat arrays via a non-recursive single-loop.
 
 ## Install
 
@@ -28,12 +28,11 @@ A new fifth argument is the stack of outer arrays and their next index to proces
 const each = require('array-each-nonflat')
 
 // a non-flat array:
+//   [ 1, [2, 3], [4, [5, 6], 7, 8], 9 ]
 const innerArray1 = [2, 3]
 const innerArray3 = [5, 6]
 const innerArray2 = [4, innerArray3, 7, 8]
-// the below is the same as:
-//   [ 1, [2, 3], [4, [5, 6], 7, 8], 9 ]
-let array = [ 1, innerArray1, innerArray2, 9 ]
+const array = [ 1, innerArray1, innerArray2, 9 ]
 
 // call a function for each element:
 each(array, (e, I, a, i, s) => {
@@ -42,6 +41,8 @@ each(array, (e, I, a, i, s) => {
   // a: the array the current element is from.
   // i: the index into `a` where `e` is from.
   // s: stack of [parentArray, nextIndex] to continue with after this array.
+
+  // return false  // this would discontinue the each operation.
 })
 
 // the above variables will have the following values for the above call.
