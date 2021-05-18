@@ -13,7 +13,7 @@ module.exports = {
     semi: [ 'error', 'never' ],
     'array-bracket-spacing': [2, 'never'],
     'block-scoped-var': 2,
-    'brace-style': [2, '1tbs'],
+    'brace-style': [2, 'stroustrup'],
     camelcase: 1,
     'computed-property-spacing': [2, 'never'],
     curly: 2,
